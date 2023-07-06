@@ -39,11 +39,29 @@ const selectColor = (event) => {
 
 const gamerModeButtonHandler = () => {
 
-    boxes.forEach(box => {
-        box.addEventListener("mouseover", () => {
-            box.style.backgroundColor = random_hex_color_code();
-        })
+    grid.addEventListener("dragstart", (event) => {
+        event.preventDefault();
     });
+    
+
+    grid.addEventListener("mousedown", () => {
+        event.preventDefault();
+
+        boxes.forEach(box => {
+            box.addEventListener("mousemove", (event) => {
+                event.preventDefault();
+                if (event.buttons == 1) {
+                    box.style.backgroundColor = random_hex_color_code();
+                }
+            })
+        });
+    })
+
+    grid.addEventListener("mouseup", () => {
+        boxes.forEach(box => {
+            box.removeEventListener("mousemove", () => {})
+        });
+    })
 
 }
 
