@@ -37,6 +37,33 @@ const selectColor = (event) => {
     
 }
 
+const darknessHandler = (event) => {
+    
+    grid.addEventListener("dragstart", (event) => {
+        event.preventDefault();
+    });
+
+    grid.addEventListener("mousedown", () => {
+        event.preventDefault();
+
+        boxes.forEach(box => {
+            box.addEventListener("mousemove", (event) => {
+                event.preventDefault();
+                if (event.buttons == 1) {
+                    box.style.backgroundColor = "";
+                }
+            })
+        });
+    })
+
+    grid.addEventListener("mouseup", () => {
+        boxes.forEach(box => {
+            box.removeEventListener("mousemove", () => {})
+        });
+    })
+
+}
+
 const erasorModeButtonHandler = (event) => {
     grid.addEventListener("dragstart", (event) => {
         event.preventDefault();
@@ -142,6 +169,8 @@ window.addEventListener("DOMContentLoaded", pageLoadedHandler);
 const gamerModeColorBtn = document.querySelector(".rgb-btn")
 gamerModeColorBtn.addEventListener("click", gamerModeButtonHandler);
 
+const opacityBtn = document.querySelector(".opacityBtn");
+opacityBtn.addEventListener("click", darknessHandler);
 
 const gridSizeBtn = document.querySelector(".change-size-btn")
 gridSizeBtn.addEventListener("click", changeGridSizeHandler);
