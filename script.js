@@ -37,7 +37,32 @@ const selectColor = (event) => {
     
 }
 
-const gamerModeButtonHandler = () => {
+const erasorModeButtonHandler = (event) => {
+    grid.addEventListener("dragstart", (event) => {
+        event.preventDefault();
+    });
+
+    grid.addEventListener("mousedown", () => {
+        event.preventDefault();
+
+        boxes.forEach(box => {
+            box.addEventListener("mousemove", (event) => {
+                event.preventDefault();
+                if (event.buttons == 1) {
+                    box.style.backgroundColor = "";
+                }
+            })
+        });
+    })
+
+    grid.addEventListener("mouseup", () => {
+        boxes.forEach(box => {
+            box.removeEventListener("mousemove", () => {})
+        });
+    })
+}
+
+const gamerModeButtonHandler = (event) => {
 
     grid.addEventListener("dragstart", (event) => {
         event.preventDefault();
@@ -121,6 +146,8 @@ gamerModeColorBtn.addEventListener("click", gamerModeButtonHandler);
 const gridSizeBtn = document.querySelector(".change-size-btn")
 gridSizeBtn.addEventListener("click", changeGridSizeHandler);
 
+const erasorBtn = document.querySelector(".erasorBtn");
+erasorBtn.addEventListener("click", erasorModeButtonHandler);
 
 const colorPicker = document.querySelector("#color-picker")
 colorPicker.addEventListener("change", selectColor);
