@@ -19,7 +19,7 @@ const selectColor = (event) => {
         event.preventDefault();
 
         boxes.forEach(box => {
-            box.addEventListener("mousemove", (event) => {
+            box.addEventListener("mouseover", (event) => {
                 event.preventDefault();
                 if (event.buttons == 1) {
                     box.style.backgroundColor = selectedColor;
@@ -30,7 +30,7 @@ const selectColor = (event) => {
 
     grid.addEventListener("mouseup", () => {
         boxes.forEach(box => {
-            box.removeEventListener("mousemove", () => {})
+            box.removeEventListener("mouseover", () => {})
         });
     })
 
@@ -100,7 +100,7 @@ const gamerModeButtonHandler = (event) => {
         event.preventDefault();
 
         boxes.forEach(box => {
-            box.addEventListener("mousemove", (event) => {
+            box.addEventListener("mouseover", (event) => {
                 event.preventDefault();
                 if (event.buttons == 1) {
                     box.style.backgroundColor = random_hex_color_code();
@@ -111,7 +111,7 @@ const gamerModeButtonHandler = (event) => {
 
     grid.addEventListener("mouseup", () => {
         boxes.forEach(box => {
-            box.removeEventListener("mousemove", () => {})
+            box.removeEventListener("mouseover", () => {})
         });
     })
 
