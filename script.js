@@ -144,6 +144,16 @@ const clearGridHandler = () => {
     })
 }
 
+function toggleGridLineHandler() {
+    boxes.forEach(box => {
+        if (box.style.border) {
+            box.style.border = "";
+        } else {
+            box.style.border = "1px solid"
+        }
+    })
+}
+
 const pageLoadedHandler = () => {
 
     let newSize = 16
@@ -183,3 +193,6 @@ colorPicker.addEventListener("change", selectColor);
 
 const clearGrid = document.querySelector(".clear-btn")
 clearGrid.addEventListener("click", clearGridHandler);
+
+const gridLineBtn = document.querySelector(".gridLineBtn")
+gridLineBtn.addEventListener("click", toggleGridLineHandler);

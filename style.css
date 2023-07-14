@@ -83,3 +83,7 @@ button {
 .grid-rw {
     flex: 1 1 0;
 }
+
+.gridLineBtn {
+    flex: 1 1 50px;
+}
