@@ -7,7 +7,7 @@
 body {
     display: flex;
     gap: 50px;
-    background-color: rgb(236, 236, 236);
+    background-color: rgb(170, 170, 170);
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
@@ -41,14 +41,14 @@ body {
 }
 
 #color-picker::-webkit-color-swatch {
-    border-radius: 15px;
+    border-radius: 12px;
     border: none;
 }
 
 button {
     flex: 0.1 1 auto;
     background-color: rgb(3, 92, 207);
-    border: none;
+    border: 3px solid black;
     color: aliceblue;
     border-radius: 10px;
     width: 400px;
