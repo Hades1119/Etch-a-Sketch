@@ -73,10 +73,10 @@ const erasorModeButtonHandler = (event) => {
         event.preventDefault();
 
         boxes.forEach(box => {
-            box.addEventListener("mousemove", (event) => {
+            box.addEventListener("mouseover", (event) => {
                 event.preventDefault();
                 if (event.buttons == 1) {
-                    box.style.backgroundColor = "";
+                    box.style.backgroundColor = "white";
                 }
             })
         });
@@ -84,7 +84,7 @@ const erasorModeButtonHandler = (event) => {
 
     grid.addEventListener("mouseup", () => {
         boxes.forEach(box => {
-            box.removeEventListener("mousemove", () => {})
+            box.removeEventListener("mouseover", () => {})
         });
     })
 }
